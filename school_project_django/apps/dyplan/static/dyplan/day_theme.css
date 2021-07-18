@@ -1,0 +1,127 @@
+#color{
+    /* for body */
+    background-color: #f4f4f2;
+}
+
+main{
+    color: #495464;
+}
+
+header{
+    background-color: #e8e8e8;
+    border-bottom: 2px solid #bbbfca;
+}
+
+header a{
+    color:#495464;
+}
+
+header a:hover{
+    color: chocolate;
+}
+
+aside{
+    background-color: #e8e8e8;
+    color: #495464;
+    border-right: 5px solid #bbbfca;
+    border-top: 5px solid #bbbfca;
+}
+
+aside ul li{
+    color: #495464;
+}
+
+aside ul li:hover, aside ul a:hover{
+    color: chocolate;
+}
+/* main page */
+.special_word{
+    color: chocolate;
+}
+
+.ul_main li{
+    color: chocolate;
+}
+/* inputs */
+input{
+    color: #495464;
+    background-color: #e8e8e8;
+    border: 1px solid #ced4da;
+}
+
+::placeholder{
+    color: grey;
+}
+
+textarea{
+    color: #495464;
+    background-color: #e8e8e8;
+    color: #495464;
+    border: 1px solid #ced4da;
+}
+
+                /* buttons */
+
+.btn-outline-success2:not(:disabled):not(.disabled).active, .btn-outline-success2:not(:disabled):not(.disabled):active, .show>.btn-outline-success2.dropdown-toggle {
+    color: #f4f4f2;
+    background-color: #495464;
+    border-color: #495464;
+}
+
+.btn-outline-success2 {
+    color: #495464;
+    border-color: #495464;
+    background-color: transparent;
+}
+
+.btn-outline-success2:hover {
+    color: #f4f4f2;
+    background-color: #495464;
+}
+
+.btn2 {
+    border-color: #495464;
+}
+
+            /* forms */
+
+.alert1 {
+    color: #495464;
+    background-color: #e8e8e8;
+    border-color: #495464;
+}
+
+.account{
+    color: #495464;
+    background-color: #e8e8e8;
+    border-color: #495464;
+}
+
+.password-input{
+    color: #495464;
+    background-color: #e8e8e8;
+    border: 1px solid #ced4da;
+}
+
+/* links */
+
+.link a {
+    color: #495464;
+}
+
+.link a:hover{
+    color: #d2691e;
+}
+
+
+#red_a{
+    color: #495464;
+}
+#red_a:hover{
+    color: rgb(218, 45, 45);
+}
+
+/* answers */
+.answer{
+    color: #d2691e;
+}

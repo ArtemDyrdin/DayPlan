@@ -1,0 +1,125 @@
+/* body */
+
+#color{
+    /* for body */
+    background-color: #2c2c2c;
+}
+
+main{
+    color: #fff;
+}
+/* HEADER */
+header{
+    background-color: #181818;
+    border-bottom: 2px solid #4d4d4d;
+}
+
+header a{
+    color:#fff;
+}
+
+header a:hover{
+    color: #0ee6b0;
+}
+/* aside */
+
+aside{
+    background-color: #181818;
+    color: #fff;
+    border-right: 5px solid #4d4d4d;
+}
+
+aside ul li{
+    color: #fff;
+}
+
+aside ul li:hover, aside ul a:hover{
+    color: #0ee6b0;
+}
+/* main page */
+.ul_main li{
+    color: #0ee6b0;
+}
+
+.special_word{
+    color: #0ee6b0;
+}
+
+/* inputs */
+
+input{
+    color: #fff;
+    background-color: #181818;
+    border: 1px solid #fff;
+}
+
+::placeholder{
+    color: grey;
+}
+
+textarea{
+    color: #fff;
+    background-color: #181818;
+    border: 1px solid #ced4da;
+}
+
+        /* buttons */
+
+.btn-outline-success2:not(:disabled):not(.disabled).active, .btn-outline-success2:not(:disabled):not(.disabled):active, .show>.btn-outline-success2.dropdown-toggle {
+    color: #fff;
+    background-color: #0ee6b0;
+    border-color: #0ee6b0;
+}
+
+.btn-outline-success2 {
+    color: #0ee6b0;
+    border-color: #0ee6b0;
+    background-color: transparent;
+}
+
+.btn-outline-success2.focus, .btn-outline-success2:focus {
+    box-shadow: 0 0 0 0.2rem #0ee6b0;
+}
+
+.btn-outline-success2:hover {
+    color: #fff;
+    background-color: #0ee6b0;
+}
+
+.btn2 {
+    border-color: #0ee6b0;
+}
+
+        /* forms */
+.alert1 {
+    color: #fff;
+    background-color: #181818;
+    border-color: #fff;
+}
+
+.account{
+    color: #fff;
+    background-color: #181818;
+    border-color: #fff;
+}
+
+        /* links */
+.link a {
+    color: #fff;
+}
+
+.link a:hover{
+    color: #0ee6b0;
+}
+/* red link */
+#red_a{
+    color: #fff;
+}
+#red_a:hover{
+    color: rgb(218, 45, 45);
+}
+
+/* answers */
+.answer{
+    color: #0ee6b0;
+}

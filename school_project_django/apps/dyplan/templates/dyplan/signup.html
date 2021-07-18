@@ -1,0 +1,43 @@
+{% extends 'dyplan/base.html' %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block body %}
+
+<h2>Регистрация</h2>
+<div class="link">
+    <a href="{% url 'main' %}"><- Вернуться на главную</a>
+</div>
+<form method="POST">
+    <div>
+        {% csrf_token %}
+        <br>
+        <h6>Имя пользователя:</h6>
+        <p>(используются только английские буквы и цифры)</p>
+        <p>{{ form.username }}</p>
+        <h6>Пароль:</h6>
+        <p>(используются только английские буквы, цифры и символы: "$ . ! ? | * + - = / ")</p>
+        <div class="password">
+            <p>{{ form.password }}</p>
+            <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+        </div>
+        <button type="submit" class="btn2 btn-outline-success2">Зарегистрироваться</button>
+        <br><p> </p>
+    </div>
+</form>
+
+<script>
+    function show_hide_password(target){
+	var input = document.getElementById('password-input');
+	if (input.getAttribute('type') == 'password') {
+		target.classList.add('view');
+		input.setAttribute('type', 'text');
+	} else {
+		target.classList.remove('view');
+		input.setAttribute('type', 'password');
+	}
+	return false;
+}
+</script>
+
+{% endblock %}
