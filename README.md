@@ -1,2 +1,2 @@
 # DayPlan
-Here you may write own plans at day quickly and comfortable 
+Школьный проект 2020-2021 года
