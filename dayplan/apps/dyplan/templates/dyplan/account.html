@@ -1,0 +1,45 @@
+{% extends 'dyplan/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body%}
+<form method="POST">
+    {% csrf_token %}
+    <br>
+    <div class="account">
+        <div>
+            <h5>Username: </h5>
+            <span>{{ user.username }}</span>
+            <span><h5>ID: </h5>{{ user.id }}</span>
+        </div>
+        <hr>
+        <details>
+            <summary><i class="fas fa-user-edit"></i>Сменить пароль</summary>
+            <br>
+            <p>(используются только английские буквы, цифры и "$ . ! ? | * + - = /")</p>
+            <div class="password">
+                <p>{{ form.password }}</p>
+                <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+            </div>
+            <button type="submit" class="btn2 btn-outline-success2">Сохранить</button>
+        </details>
+        <br><br>
+        <h6><a href="{% url 'del_user' %}" id="red_a">Удалить аккаунт</a></h6>
+    </div>
+</form>
+
+<script>
+    function show_hide_password(target){
+	var input = document.getElementById('password-input');
+	if (input.getAttribute('type') == 'password') {
+		target.classList.add('view');
+		input.setAttribute('type', 'text');
+	} else {
+		target.classList.remove('view');
+		input.setAttribute('type', 'password');
+	}
+	return false;
+}
+</script>
+
+{% endblock %}

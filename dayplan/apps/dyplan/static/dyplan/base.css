@@ -1,0 +1,235 @@
+body{
+    text-align: center;
+    font-size: 25px;
+    position: relative;
+}
+
+main{
+    text-align: center;
+    padding-bottom: 2,727272727272727%;
+}
+
+/* header */
+
+header{
+    text-align: right;
+    max-width: 100%;
+    max-height: 7vh;
+    padding: 2.5%;
+    position: sticky;
+    top: 0;
+}
+
+header a{
+    padding: 0,4545454545454545%;
+}
+
+header a:hover{
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+/* aside */
+
+aside{
+    float:left;
+    max-width: 17%;
+    height: 100vh;
+    padding: 2.5%;
+    position: sticky;
+    top: 0;
+}
+
+aside ul{
+    list-style: none;
+    position: relative;
+    margin-right: 5%;
+    text-align: left;
+    padding-inline-start: 0%;
+}
+
+aside ul li{
+    display: block;
+    transition: all .2s ease;
+}
+
+aside ul li:hover, aside ul a:hover{
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+/* main page */
+.main_page{
+    text-align: center;
+    /* background-color: #ffffb2; */
+    border: 2px solid #ced4da;
+}
+
+.instruction{
+    margin-left: 17%;
+    text-align: left;
+}
+.question{
+    font-style: italic;
+    font-family: 'Allan', Helvetica, Arial, sans-serif;
+}
+.ul_main{
+    text-align: left;
+    margin-left: 16%;
+}
+
+/* inputs */
+
+input{
+    text-align: center;
+    width: 300px;
+    padding: .375rem .75rem;
+    font-weight: 600;
+    border-radius: .25rem;
+}
+.password {
+	width: 300px;
+	margin: 15px auto;
+	position: relative;
+}
+
+.password-control {
+	position: absolute;
+	top: 11px;
+	right: 6px;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat;
+}
+
+.password-control.view {
+	background: url(https://snipp.ru/demo/495/no-view.svg) 0 0 no-repeat;
+}
+
+textarea{
+    width: 300px;
+    height: 250px;
+    font-size: 20px;
+    position: relative;
+    display: block;
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+}
+
+.contact_textaria{
+    width: 50%;
+    margin-left: 33%;
+    position: relative;
+    text-align: center;
+}
+
+        /* buttons */
+
+.btn-outline-success2 {
+    background-color: transparent;
+}
+
+.btn-outline-success2:hover {
+    transform: scale(1.05);
+    transition: all .2s ease;
+}
+
+.btn2 {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+}
+
+.theme-button
+{
+    position: absolute;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+}
+
+        /* forms */
+
+.inp{
+    display: inline-block;
+}
+
+.alert1 {
+    position: relative;
+    padding: .75rem 1.25rem;
+    width: 400px;
+    margin: 20px 44.5%;
+    text-align: left;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+.account{
+    padding: .75rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    width: 600px;
+    margin: 20px 34%;
+}
+
+.account div{
+    align-items:center;
+    text-align: center;
+    display: flex;
+}
+
+.account div span{
+    font-size: xx-large;
+    margin-left: 25%;
+}
+
+.account li{
+    display: block;
+    margin-top: 22px;
+    transition: all .2s ease;
+    list-style: none;
+}
+
+        /* links */
+main a:hover{
+    text-decoration: none;
+}
+
+.link {
+    display: block;
+}
+
+.link a {
+    size: 20px;
+}
+
+.link a:hover{
+    transform: scale(1.05);
+    transition: all .2s ease;
+}
+
+/* red link */
+#red_a{
+    margin-left: 2%;
+}
+
+.logo {
+    width: 100%;
+}
+
+/* answers */
+.answer{
+    font-size: 20px;
+}

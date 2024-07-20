@@ -1,0 +1,27 @@
+{% extends 'dyplan/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+
+<br>
+<h3>Мои планы</h3>
+<br>
+<a href="{% url 'dayplan' %}" class="btn2 btn-outline-success2"> + </a>
+{% if not dt %}
+    <h3>Нажав на '+' вы можете писать свои планы</h3>
+<br><br>
+{% elif dt %}
+    {% for el in dt %}
+        {% if request.user == el.author %}
+            <div class="alert1 link">
+                <h3>{{ el.date }}</h3>
+                <p>{{ el.plan }}</p>
+                <a name='Редактировать' href="{% url 'edit_plan' user.id el.id %}"><i class="fas fa-pen"></i></a>
+                <a name='Удалить' href="{% url 'delete_plan' el.id %}" id="red_a"><i class="fas fa-trash"></i></a>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+{% endblock %}

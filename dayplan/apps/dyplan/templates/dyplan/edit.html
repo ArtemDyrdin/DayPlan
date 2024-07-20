@@ -1,0 +1,19 @@
+{% extends 'dyplan/base.html' %}
+
+{% block title %}Редактировать{% endblock %}
+
+{% block body %}
+
+<form method="POST">
+    {% csrf_token %}
+    <br><br>
+    <h3>Редактировать план</h3>
+    <div style="display: inline-block;">
+        <div>{{ form.date }}</div>
+        <div>{{ form.plan }}</div>
+    </div>
+    <p>{{ error }}</p>
+
+    <button type="submit" class="btn2 btn-outline-success2">Сохранить</button>
+</form>
+{% endblock %}

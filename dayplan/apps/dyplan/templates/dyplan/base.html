@@ -1,0 +1,53 @@
+{% load static %}
+
+<!doctype html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="{% static 'img/notepad.png' %}" type="image/x-icon">
+        <link href="https://fonts.googleapis.com/css?family=Allan" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'dyplan/base.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'dyplan/media_querries.css' %}"/>
+        {% if not user.is_authenticated or user.profile.theme == False %}
+            <link rel="stylesheet" type="text/css" href="{% static 'dyplan/day_theme.css' %}">
+        {% elif user.profile.theme == True %}
+            <link rel="stylesheet" type="text/css" href="{% static 'dyplan/night_theme.css' %}">
+        {% endif %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    </head>
+    <body id="color">
+        {% if user.is_authenticated %}
+            <aside>
+                <img src="{% static 'img/notepad.png' %}" max-width="100" alt="Logo" class="logo">
+                <span class="logo">Dayplan</span>
+                <br><br>
+                <ul>
+                    <a href="{% url 'main' %}"><li><i class="fas fa-home"></i> Главная</li></a><br>
+                    <a href="{% url 'myplans' %}"><li><i class="fas fa-clipboard-list"></i> Мои планы</li></a><br>
+                    <a href="{% url 'account' %}"><li><i class="far fa-user-circle"></i> Аккаунт</li></a><br>
+                    <a href="{% url 'contacts' %}"><li><i class="fas fa-id-card-alt"></i> Контакты</li></a><br>
+                    {% if user.profile.theme == False %}
+                        <a href="{% url 'change_theme' %}"><li><i class="fas fa-moon"></i> Ночь</li></a><br>
+                    {% else %}
+                        <a href="{% url 'change_theme' %}"><li><i class="fas fa-sun"></i> День</li></a><br>
+                    {% endif %}
+                    <a href="{% url 'logout' %}"><li><i class="fas fa-sign-out-alt"></i> Выйти</li></a>
+                </ul> 
+            </aside>
+        {% else %}
+            <header>
+                <h5>
+                    <a href="{% url 'signup'%}">Зарегистрироваться</a>
+                    <a href="/login">Войти</a>
+                </h5>
+            </header>
+        {% endif %}
+        <main>
+            {% block body %}
+
+            {% endblock %}
+        </main>
+    </body>
+</html>

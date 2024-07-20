@@ -1,0 +1,23 @@
+{% extends 'dyplan/base.html' %}
+
+{% block title %}Новый план{% endblock %}
+
+{% block body %}
+
+<form method="POST">
+    {% csrf_token %}
+
+    <h1>Контакты</h1>
+    <br>
+    <p>Вы можете отправить нам письмо с пожеланиями, жалобами о недочетах и т.д.</p>
+    <br>
+    <div class="contacts">
+        <span class='answer'>{{ error }}{{ complete }}</span>
+        <p>{{ form.letter }}</p>
+    </div>
+    <br>
+    <br>
+    <button type="submit" class="btn2 btn-outline-success2">Отправить</button>
+</form>
+
+{% endblock %}
