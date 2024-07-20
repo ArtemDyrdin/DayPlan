@@ -1,16 +1,14 @@
 from django.shortcuts import render, redirect
 from .forms import DayPlansForm, AuthUserForm, RegisterUserForm, LettersForm, Change_passwordForm
-from .models import DayPlans, Profile
+from .models import DayPlans
 
-from django.views.generic import UpdateView, CreateView
-from django.contrib.auth.forms import UserCreationForm
+from django.views.generic import UpdateView
 from django.contrib.auth.views import LoginView
-from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.urls import reverse_lazy, reverse
-from django.http import HttpResponseForbidden, HttpResponse
+from django.http import HttpResponseForbidden
 
 
 def main_page(request):
@@ -18,6 +16,7 @@ def main_page(request):
         'title': 'Главная'
     }
     return render(request, 'dyplan/main_page.html', data)
+
 
 def myplans(request):
     dt = DayPlans.objects.order_by('-date')
@@ -28,6 +27,7 @@ def myplans(request):
     if not request.user.is_authenticated:
         return HttpResponseForbidden()
     return render(request, 'dyplan/myplans.html', data)
+
 
 def dayplan(request):
     error = ''
@@ -51,13 +51,14 @@ def dayplan(request):
         return HttpResponseForbidden()
     return render(request, 'dyplan/dayplan.html', data)
 
+
 def account(request):
     if not request.user.is_authenticated:
         return HttpResponseForbidden()
     if request.method == 'POST':
         form = Change_passwordForm(request.POST)
         if form.is_valid():
-            print('...\n', ' \n','OK\n', ' \n', '...')
+            print('...\n', ' \n', 'OK\n', ' \n', '...')
             password = form.cleaned_data['password']
             request.user.set_password(password)
             request.user.save()
@@ -75,6 +76,7 @@ def account(request):
 
 #Edit, Delete (plans)
 
+
 class PlanUpdate(LoginRequiredMixin, UpdateView):
     model = DayPlans
     template_name = 'dyplan/edit.html'
@@ -82,15 +84,16 @@ class PlanUpdate(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('myplans')
     success_msg = 'Запись успешно обновлена'
 
-    def get_context_data(self,**kwargs):
+    def get_context_data(self, **kwargs):
         kwargs['update'] = True
         return super().get_context_data(**kwargs)
-        
+
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
         if self.request.user != kwargs['instance'].author:
             return handle_no_permission()
         return kwargs
+
 
 def delete_plan(request, pk):
     if not request.user.is_authenticated:
@@ -103,9 +106,10 @@ def delete_plan(request, pk):
 
 #Registration, LogIn, delete (user), change_theme
 
+
 def register(request):
     if request.user.is_authenticated:
-            return HttpResponseForbidden()
+        return HttpResponseForbidden()
     else:
         if request.method == 'POST':
             form = RegisterUserForm(request.POST)
@@ -122,19 +126,21 @@ def register(request):
             form = RegisterUserForm()
 
         dt = {
-            'form': form, 
+            'form': form,
         }
 
         return render(request, 'dyplan/signup.html', dt)
+
 
 class LogInView(LoginView):
     template_name = 'dyplan/login.html'
     form_class = AuthUserForm
     success_url = '/myplans'
 
+
 def contacts(request):
     if not request.user.is_authenticated:
-            return HttpResponseForbidden()
+        return HttpResponseForbidden()
     else:
         error = 'Ошибка отправки формы'
         complete = 'Ваше сообщение успешно отправлено!'
@@ -152,11 +158,13 @@ def contacts(request):
 
         return render(request, 'dyplan/contacts.html', {'form': form})
 
+
 def delete_user(request):
     if not request.user.is_authenticated:
         return HttpResponseForbidden()
     request.user.delete()
     return redirect('/')
+
 
 def change_theme(request):
     if not request.user.is_authenticated:

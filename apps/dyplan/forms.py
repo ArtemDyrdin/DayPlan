@@ -1,8 +1,9 @@
-from .models import DayPlans, Letters, Profile
-from django.forms import ModelForm, DateInput, Textarea, CharField, EmailField, PasswordInput, BooleanField
+from .models import DayPlans, Letters
+from django.forms import ModelForm, DateInput, Textarea, CharField, PasswordInput
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
+
 
 class DayPlansForm(ModelForm):
     class Meta:
@@ -12,12 +13,13 @@ class DayPlansForm(ModelForm):
         widgets = {
             'plan': Textarea(attrs={
                 'placeholder': 'Вынести мусор'
-            }), 
+            }),
             'date': DateInput(attrs={
                 # 'type': 'date',
                 'placeholder': 'Дата'
             })
         }
+
 
 class Change_passwordForm(ModelForm):
     class Meta:
@@ -30,34 +32,36 @@ class Change_passwordForm(ModelForm):
         })
     }
 
+
 class AuthUserForm(AuthenticationForm, ModelForm):
     class Meta:
         model = User
         fields = ['username', 'password']
 
     widgets = {
-            'password': PasswordInput(attrs={
-                'id': 'password-input'
-            })
-        }
+        'password': PasswordInput(attrs={
+            'id': 'password-input'
+        })
+    }
 
-    def __init__(self,*args,**kwargs):
-        super().__init__(*args,**kwargs)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
 
 class RegisterUserForm(ModelForm):
     class Meta:
         model = User
         fields = ['username', 'password']
-    
+
         widgets = {
             'password': PasswordInput(attrs={
                 'id': 'password-input'
             })
         }
 
-    def __init__(self,*args,**kwargs):
-        super().__init__(*args,**kwargs)
-            
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
         self.fields["username"] = CharField(
             max_length=40,
             min_length=5)
@@ -81,6 +85,7 @@ class RegisterUserForm(ModelForm):
 #         widgets = {
 #             'theme': BooleanField(attrs={'class': 'date'}),
 #         }
+
 
 class LettersForm(ModelForm):
     class Meta:
